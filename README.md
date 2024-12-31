@@ -26,6 +26,8 @@ For BTRFS-Support add `--cap-add SYS_ADMIN` to the command above
 
 For ZFS support add `--device /dev/zfs` to the command above
 
+Add `-e ZFS_DATASET="your/dataset"` to the command above if you want to set the ZFS dataset via an ENV variable instead of mounting `/etc/urbackup/dataset`
+
 If you want to externally bind-mount the www-folder add `-v /path/to/wwwfolder:/usr/share/urbackup`
 
 ### Or via docker-compose (compatible with stacks in Portainer): 
@@ -43,6 +45,8 @@ services:
       - PUID=1000 # Enter the UID of the user who should own the files here
       - PGID=100  # Enter the GID of the user who should own the files here
       - TZ=Europe/Berlin # Enter your timezone
+      # Uncomment the next line if you want to set the ZFS dataset via an ENV variable instead of mounting /etc/urbackup/dataset
+      #- ZFS_DATASET="your/dataset"
     volumes:
       - /path/to/your/database/folder:/var/urbackup
       - /path/to/your/backup/folder:/backups
