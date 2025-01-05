@@ -26,7 +26,7 @@ For BTRFS-Support add `--cap-add SYS_ADMIN` to the command above
 
 For ZFS support add `--device /dev/zfs` to the command above
 
-Add `-e ZFS_IMAGE="tank/images"` and `-e ZFS_FILES="tank/files"` to the command above if you want to set the ZFS dataset via an ENV variable instead of mounting `/etc/urbackup/dataset*`
+Add `-e ZFS_IMAGE=tank/images` and `-e ZFS_FILES=tank/files` to the command above if you want to set the ZFS dataset via an ENV variable instead of mounting `/etc/urbackup/dataset*`
 
 If you want to externally bind-mount the www-folder add `-v /path/to/wwwfolder:/usr/share/urbackup`
 
@@ -46,8 +46,8 @@ services:
       - PGID=100  # Enter the GID of the user who should own the files here
       - TZ=Europe/Berlin # Enter your timezone
       # Uncomment the next lines if you want to set the ZFS datasets via ENV variables instead of mounting /etc/urbackup/dataset*
-      #- ZFS_IMAGE="tank/images"
-      #- ZFS_FILES="tank/files"
+      #- ZFS_IMAGE=tank/images
+      #- ZFS_FILES=tank/files
     volumes:
       - /path/to/your/database/folder:/var/urbackup
       - /path/to/your/backup/folder:/backups
